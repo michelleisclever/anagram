@@ -1,0 +1,17 @@
+<h1>Anagrams for <%= "#{@word}" %></h1>
+
+    <table class="table">
+<thead class="thead-inverse">
+    <th>Word</th>
+    </thead>
+<tbody>
+     <% @anagrams.each do |anagram| %>
+    <tr>
+    <td>
+    
+        <%= "#{anagram}" %>
+                  </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
