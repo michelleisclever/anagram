@@ -17,8 +17,7 @@ end
 post '/' do
     @word = params[:word]
     begin 
-        @anagrams = Word.find_anagrams(@word)
-        @anagrams = Word.valid_input?(@word)
+        Word.valid_input?(@word)
       redirect "/anagrams/#{@word}"
     rescue Exception => error
       @error = error.message
