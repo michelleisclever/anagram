@@ -16,12 +16,12 @@ end
 # Take the word from the params and redirect to new /anagrams/:word route
 post '/' do
     @word = params[:word]
-    if valid_input?(@word)
+    begin 
+        @anagrams = Word.find_anagrams(@word)
+        @anagrams = Word.valid_input?(@word)
       redirect "/anagrams/#{@word}"
-    else
-    #create an @error variable with an error message
-    @error = "Oops! You must enter a word that contains 3 unique characters."
-    #then render the index page again
-    erb :index
-end
+    rescue Exception => error
+      @error = error.message
+      erb :index
+    end
 end

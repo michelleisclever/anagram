@@ -45,7 +45,7 @@ class Word < ActiveRecord::Base
     end
 end
 
-def three_letters?(input)
+def self.three_letters?(input)
     #return true if input is 3 or less characters
     #and false otherwise
     if input.length == 3
@@ -55,7 +55,7 @@ def three_letters?(input)
     end
 end
 
-def distinct_letters?(input)
+def self.distinct_letters?(input)
     letter_array = input.chars
     unique_letters = letter_array.uniq
     if unique_letters.length < letter_array.length
@@ -65,11 +65,9 @@ def distinct_letters?(input)
     end
 end
 
-def valid_input?(input)
-    if three_letters?(input) && distinct_letters?(input)
-        true
-    else
-        false
+def self.valid_input?(input)
+    if input.length > 3
+        raise Exception.new("Word must be less than or equal to 3 characters.")
     end
 end
     
