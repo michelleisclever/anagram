@@ -8,8 +8,9 @@ end
 # word is the word we want to find the anagram for
 get '/anagrams/:word' do
     @word = params[:word]
-    # call word.find_anagrams and pass in our word
-    @anagrams = Word.find_anagrams(@word)
+    # create alpha array of @word
+    alphabetized_string = @word.chars.sort.join
+    @anagrams = Word.where("letters=?", alphabetized_string)
     erb :show
 end
 

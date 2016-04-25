@@ -6,12 +6,14 @@
     </thead>
 <tbody>
     <tr>
-     <% @anagrams.each do |anagram| %>
+        <% if !@anagrams.nil? %>
+        <% @anagrams.each do |word| %>
     <tr>
     <td>
-        <%= "#{anagram}" %>
+        <%= word.text %>
                   </td>
     </tr>
+    <% end %>
     <% end %>
     </tbody>
 </table>
