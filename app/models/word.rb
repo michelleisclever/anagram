@@ -65,16 +65,18 @@ end
 def self.distinct_letters?(input)
     letter_array = input.chars
     unique_letters = letter_array.uniq
-    if unique_letters.length < letter_array.length
-        false
-    else
+    if unique_letters.length == letter_array.length
         true
+    else
+        false
     end
 end
 
 def self.valid_input?(input)
-    if input.length > 3
-        raise Exception.new("Word must be less than or equal to 3 characters.")
+    if three_letters?(input) && distinct_letters?(input)
+true
+else
+        raise Exception.new("Word must be less than or equal to 3 characters and only distinct letters.")
     end
 end
     
