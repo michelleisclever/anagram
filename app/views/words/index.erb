@@ -1,4 +1,4 @@
-<h1>Words</h1>
+<h2>Words</h2>
 
     <table class="table table-striped">
 <thead style="text-align:center">
@@ -12,7 +12,7 @@
 
     <tr>
     <td style="text-align:center">
-                <%= word.text %>
+        <a href="<%= "/words/#{word.id}" %>"><%= word.text %></a>
         </td>
         <td style="text-align:center">
         <%= word.letters %>
@@ -22,4 +22,4 @@
     <% end %>
     </tbody>
 </table>
-<a href="/" class="btn btn-default">Try Another Word!</a>
+<a href="./" class="btn btn-default">Try A New Word!</a>
