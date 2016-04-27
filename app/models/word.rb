@@ -55,31 +55,31 @@ class Word < ActiveRecord::Base
         reversed_letters
     end
 
-def self.three_letters?(input)
+#def self.three_letters?(input)
     #return true if input is 3 or less characters
     #and false otherwise
-    if input.length == 3
-        true
-    else 
-        false
-    end
-end
+ #   if input.length == 3
+  #      true
+   # else 
+    #    false
+    #end
+#end
 
-def self.distinct_letters?(input)
-    letter_array = input.chars
-    unique_letters = letter_array.uniq
-    if unique_letters.length == letter_array.length
-        true
-    else
-        false
-    end
-end
+#def self.distinct_letters?(input)
+ #   letter_array = input.chars
+  #  unique_letters = letter_array.uniq
+   # if unique_letters.length == letter_array.length
+    #    true
+   # else
+   #     false
+   # end
+#end
 
 def self.valid_input?(input)
-    if three_letters?(input) && distinct_letters?(input)
-true
+    if Word.find_by_text(input).present? 
+        false
 else
-        raise Exception.new("Word must be less than or equal to 3 characters and only distinct letters.")
+        raise Exception.new("Congrats! The word cannot be found. Add it now!")
     end
 end
     
