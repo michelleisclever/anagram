@@ -5,10 +5,10 @@
     <th style="text-align:center">Results</th>
     </thead>
 <tbody>
-    <tr class="text-uppercase">
+    <tr>
         <% if !@anagrams.nil? %>
         <% @anagrams.each do |word| %>
-    <tr>
+    <tr class="text-uppercase">
     <td>
         <%= word.text %>
                   </td>
