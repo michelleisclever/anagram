@@ -1,7 +1,7 @@
 <h2>Words in the Dictionary</h2>
 <a href="./" class="btn btn-default"><i class="fa fa-search"></i> Find Your Anagram!</a>
 
-    <table class="table table-striped">
+    <table class="table table-hover">
 <thead style="text-align:center">
     <th style="text-align:center">Text</th>
     <th style="text-align:center">Letters</th>
@@ -11,7 +11,7 @@
     <% @word.each do |word| %>
     <tr>
 
-    <tr>
+    <tr class="text-uppercase">
     <td style="text-align:center">
         <a href="<%= "/words/#{word.id}" %>"><%= word.text %></a>
         </td>
